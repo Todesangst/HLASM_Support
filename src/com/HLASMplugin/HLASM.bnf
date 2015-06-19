@@ -1,0 +1,21 @@
+{
+  parserClass="com.HLASMplugin.parser.HLASMParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="HLASM"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.HLASMplugin.psi"
+  psiImplPackage="com.HLASMplugin.psi.impl"
+
+  elementTypeHolderClass="com.HLASMplugin.psi.HLASMTypes"
+  elementTypeClass="com.HLASMplugin.psi.HLASMElementType"
+  tokenTypeClass="com.HLASMplugin.psi.HLASMTokenType"
+}
+
+HLASMFile ::= item_*
+
+private item_ ::= (statement|COMMENT|CRLF)
+
+statement ::= (NAME? OPERATION OPERAND? COMMENT?)
+
